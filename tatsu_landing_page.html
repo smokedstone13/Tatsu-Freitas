@@ -1,0 +1,1538 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conhecendo Tatsu Freitas 💜</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Rubik', sans-serif;
+            background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background: white;
+            padding: 2rem 5%;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        header::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: -12px;
+            height: 14px;
+            background: linear-gradient(180deg, rgba(163, 230, 53, 0.38), rgba(163, 230, 53, 0));
+            filter: blur(4px);
+            pointer-events: none;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 32px;
+            font-weight: 700;
+            font-style: italic;
+            background: linear-gradient(135deg, #A3E635 0%, #4D7C0F 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        nav {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        nav button, nav a {
+            padding: 10px 20px;
+            border: 2px solid transparent;
+            background: transparent;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-family: 'Rubik', sans-serif;
+        }
+
+        nav button {
+            color: #333;
+            border: 2px solid #ddd;
+        }
+
+        nav button.active {
+            background: linear-gradient(135deg, #A3E635 0%, #4D7C0F 100%);
+            color: white;
+            border: none;
+        }
+
+        nav button.active[data-color="yellow"] {
+            background: linear-gradient(135deg, #FDE047 0%, #EAB308 100%);
+            color: #1F2937;
+            border: none;
+        }
+
+        nav button.active[data-color="purple"] {
+            background: linear-gradient(135deg, #C084FC 0%, #7C3AED 100%);
+            color: white;
+            border: none;
+        }
+
+        nav button.active[data-color="blue"] {
+            background: linear-gradient(135deg, #60A5FA 0%, #2563EB 100%);
+            color: white;
+            border: none;
+        }
+
+        nav button:hover {
+            border-color: #A3E635;
+        }
+
+        nav a.instagram {
+            background: linear-gradient(135deg, #A3E635 0%, #4D7C0F 100%);
+            color: white;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            padding: 0;
+            border-radius: 12px;
+        }
+
+        nav a.instagram svg {
+            width: 20px;
+            height: 20px;
+            fill: white;
+        }
+
+        nav a.instagram:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        header[data-color="purple"] .logo {
+            background: linear-gradient(135deg, #C084FC 0%, #7C3AED 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        header[data-color="purple"] nav a.instagram {
+            background: linear-gradient(135deg, #C084FC 0%, #7C3AED 100%);
+        }
+
+        header[data-color="yellow"] .logo {
+            background: linear-gradient(135deg, #FDE047 0%, #EAB308 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        header[data-color="yellow"] nav a.instagram {
+            background: linear-gradient(135deg, #FDE047 0%, #EAB308 100%);
+        }
+
+        header[data-color="blue"] .logo {
+            background: linear-gradient(135deg, #60A5FA 0%, #2563EB 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        header[data-color="blue"] nav a.instagram {
+            background: linear-gradient(135deg, #60A5FA 0%, #2563EB 100%);
+        }
+
+        header[data-color="purple"]::after {
+            background: linear-gradient(180deg, rgba(124, 58, 237, 0.42), rgba(124, 58, 237, 0));
+        }
+
+        header[data-color="yellow"]::after {
+            background: linear-gradient(180deg, rgba(234, 179, 8, 0.46), rgba(234, 179, 8, 0));
+        }
+
+        header[data-color="blue"]::after {
+            background: linear-gradient(180deg, rgba(37, 99, 235, 0.42), rgba(37, 99, 235, 0));
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        section {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* SEÇÃO SOBRE */
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            padding: 3rem 0;
+        }
+
+        .hero-text h1 {
+            font-family: 'Palatino Linotype', Palatino, serif;
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #36454F;
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #A3E635 0%, #4D7C0F 100%);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 24px;
+            font-weight: 700;
+            font-style: italic;
+            margin-bottom: 2rem;
+        }
+
+        .hero-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 2rem;
+        }
+
+        .hero-badges .hero-badge {
+            margin-bottom: 0;
+        }
+
+        .hero-photo {
+            width: 100%;
+            max-width: 100%;
+            aspect-ratio: 2976 / 4464;
+            min-height: 420px;
+            height: auto;
+            border-radius: 12px;
+            position: relative;
+            overflow: hidden;
+            background-image: url('https://i.imgur.com/okYQ6TP.jpg');
+            background-size: cover;
+            background-position: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+        }
+
+        .hero-photo::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(255,20,147,0.08), rgba(123,44,191,0.08));
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 2rem;
+        }
+
+        .skill-tag {
+            background: linear-gradient(135deg, #FFE135 0%, #FFA500 100%);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        /* SEÇÃO PORTFÓLIO */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+            padding: 3rem 0;
+        }
+
+        .portfolio-other {
+            margin-top: 2rem;
+        }
+
+        .portfolio-other h2 {
+            color: #7C3AED;
+        }
+
+        .gallery-item {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.04);
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 14px 30px rgba(0,0,0,0.12);
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: 260px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            display: block;
+        }
+
+        .gallery-carousel {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gallery-carousel .gallery-slide {
+            display: none;
+            width: 100%;
+            height: 260px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .gallery-carousel .gallery-slide.active {
+            display: block;
+        }
+
+        .gallery-carousel-button {
+            position: absolute;
+            top: 50%;
+            z-index: 2;
+            width: 34px;
+            height: 34px;
+            border: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.9);
+            color: #1F2937;
+            cursor: pointer;
+            font-size: 22px;
+            line-height: 1;
+            transform: translateY(-50%);
+            transition: background 0.2s ease, transform 0.2s ease;
+        }
+
+        .gallery-carousel-button:hover {
+            background: white;
+            transform: translateY(-50%) scale(1.08);
+        }
+
+        .gallery-carousel-button.previous {
+            left: 12px;
+        }
+
+        .gallery-carousel-button.next {
+            right: 12px;
+        }
+
+        .gallery-image::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(0,0,0,0.02), rgba(0,0,0,0.15));
+        }
+
+        .gallery-content {
+            padding: 1.25rem 1rem 1rem;
+        }
+
+        .gallery-content h3 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 0.45rem;
+            color: #333;
+        }
+
+        .gallery-content p {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .gallery-tag {
+            display: inline-block;
+            background: linear-gradient(135deg, #C084FC 0%, #7C3AED 100%);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        /* SEÇÃO TIMELINE */
+        .timeline {
+            padding: 3rem 0;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 4px;
+            transform: translateX(-50%);
+            background: linear-gradient(180deg, #FDE047 0%, #EAB308 100%);
+            border-radius: 4px;
+            z-index: 0;
+        }
+
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 150px 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: white;
+            border-radius: 12px;
+            border-left: 4px solid;
+            position: relative;
+            z-index: 1;
+        }
+
+        .timeline-year {
+            font-size: 20px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #A3E635 0%, #4D7C0F 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .timeline-content h3 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .timeline-content p {
+            font-size: 13px;
+            color: #666;
+        }
+
+        /* SEÇÃO AGENDA */
+        .agenda-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            padding: 3rem 0;
+        }
+
+        .agenda-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-top: 4px solid;
+        }
+
+        .agenda-card h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .agenda-card p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .cta-box {
+            background: linear-gradient(135deg, #A3E635 0%, #4D7C0F 100%);
+            color: white;
+            padding: 3rem 2rem;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .cta-box h2 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .cta-box p {
+            font-size: 16px;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #4D7C0F;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-family: 'Rubik', sans-serif;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+        }
+
+        #sobre .skill-tag {
+            background: #D9F99D;
+            color: #365314;
+        }
+
+        #sobre .hero-photo::after {
+            background: linear-gradient(135deg, rgba(163, 230, 53, 0.12), rgba(77, 124, 15, 0.12));
+        }
+
+        #sobre .hero-text h1,
+        #portfolio .container > h2,
+        #timeline .container > h2,
+        #agenda .container > h2,
+        #audiovisual .container > h2 {
+            position: relative;
+            width: fit-content;
+            padding-bottom: 0.65rem;
+        }
+
+        #sobre .hero-text h1::after,
+        #portfolio .container > h2::after,
+        #timeline .container > h2::after,
+        #agenda .container > h2::after,
+        #audiovisual .container > h2::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 10px;
+            border-radius: 50%;
+            filter: blur(5px);
+            opacity: 0.75;
+            z-index: -1;
+        }
+
+        #sobre .hero-text h1::after {
+            background: linear-gradient(90deg, rgba(163, 230, 53, 0.8), rgba(77, 124, 15, 0));
+        }
+
+        #portfolio .container > h2::after {
+            background: linear-gradient(90deg, rgba(192, 132, 252, 0.85), rgba(124, 58, 237, 0));
+        }
+
+        #timeline .container > h2::after {
+            background: linear-gradient(90deg, rgba(253, 224, 71, 0.9), rgba(234, 179, 8, 0));
+        }
+
+        #agenda .container > h2::after,
+        #audiovisual .container > h2::after {
+            background: linear-gradient(90deg, rgba(96, 165, 250, 0.85), rgba(37, 99, 235, 0));
+        }
+
+        #portfolio h2 {
+            color: #7C3AED !important;
+        }
+
+        #portfolio .gallery-item {
+            border-color: rgba(124, 58, 237, 0.2);
+        }
+
+        #timeline h2 {
+            color: #EAB308 !important;
+        }
+
+        #timeline .timeline-item {
+            border-left-color: #EAB308;
+        }
+
+        #timeline .timeline-year {
+            background: linear-gradient(135deg, #FDE047 0%, #EAB308 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        #agenda h2 {
+            color: #2563EB !important;
+        }
+
+        #agenda .agenda-card {
+            border-top-color: #2563EB;
+        }
+
+        #agenda .cta-box {
+            background: #DBEAFE;
+            color: #1E3A8A;
+        }
+
+        #agenda .cta-box h2 {
+            color: #B91C1C !important;
+        }
+
+        #agenda .cta-button {
+            background: #60A5FA;
+            color: white;
+        }
+
+        #agenda .cta-button:hover {
+            background: #2563EB;
+            color: white;
+        }
+
+        .agenda-year-highlight {
+            color: #DC2626;
+        }
+
+        #audiovisual h2 {
+            color: #2563EB !important;
+        }
+
+        #audiovisual .gallery-item {
+            border-color: rgba(37, 99, 235, 0.2);
+        }
+
+        #audiovisual .gallery-tag {
+            background: linear-gradient(135deg, #60A5FA 0%, #2563EB 100%);
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+            font-size: 14px;
+        }
+
+        footer a {
+            color: #A3E635;
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav {
+                justify-content: center;
+            }
+
+            h1 {
+                font-size: 32px;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline-item {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header data-color="green">
+        <div class="header-content">
+            <div class="logo">Sonhe mais alto</div>
+            <nav>
+                <button class="tab-button active" data-color="green" data-tab="sobre" onclick="switchTab('sobre', event)">Sobre</button>
+                <button class="tab-button" data-color="purple" data-tab="portfolio" onclick="switchTab('portfolio', event)">Portfólio</button>
+                <button class="tab-button" data-color="yellow" data-tab="timeline" onclick="switchTab('timeline', event)">Linha do tempo</button>
+                <button class="tab-button" data-color="blue" data-tab="audiovisual" onclick="switchTab('audiovisual', event)">Mídia</button>
+                <button class="tab-button" data-color="blue" data-tab="agenda" onclick="switchTab('agenda', event)">Saiba mais</button>
+                <a href="https://instagram.com/tatsufreitas" target="_blank" class="instagram" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                        <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5A5.5 5.5 0 1 1 6.5 13 5.5 5.5 0 0 1 12 7.5zm0 2A3.5 3.5 0 1 0 15.5 13 3.5 3.5 0 0 0 12 9.5zm5.25-3.25a1.25 1.25 0 1 1-1.25 1.25 1.25 1.25 0 0 1 1.25-1.25z"/>
+                    </svg>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- SEÇÃO SOBRE -->
+    <section id="sobre" class="active">
+        <div class="container">
+            <div class="hero">
+                <div class="hero-text">
+                    <h1>Tatsu Freitas</h1>
+                    <div class="hero-badges">
+                        <div class="hero-badge">22 Anos</div>
+                        <div class="hero-badge">Multiartista</div>
+                    </div>
+                    <div class="skills">
+                        <div class="skill-tag">Atuação</div>
+                        <div class="skill-tag">Contação de Histórias</div>
+                        <div class="skill-tag">Arte Educação</div>
+                        <div class="skill-tag">Dramaturgia</div>
+                        <div class="skill-tag">Musicalidade</div>
+                        <div class="skill-tag">Mestre de Cerimônias</div>
+                        <div class="skill-tag">Animação de Festas</div>
+                        <div class="skill-tag">Coordenação de Eventos</div>
+                        <div class="skill-tag">Dublagem</div>
+                        <div class="skill-tag">Audiovisual</div>
+                        <div class="skill-tag">Dança Contemporânea</div>
+                        <div class="skill-tag">Personagem Vivo</div>
+                        <div class="skill-tag">Canto Popular</div>
+                        <div class="skill-tag">Recreação</div>
+                    </div>
+                    <div style="margin: 2rem 0; font-size: 16px; color: #555; line-height: 1.9;">
+                        <p>Desde neném, eu cantava o álbum inteiro da Xuxa, animava as festas da família e assistia a desenhos japoneses, novelas brasileiras e jogos digitais. Mas foi num projeto extracurricular do SESI que comecei a atuar.</p>
+                        <p style="margin-top: 1rem;">Minha formação começou com Karine Ramaldes aos 11 anos de idade, que me acompanhou nos primeiros passos do teatro. Durante os seis anos com ela, ingressei no FIC-IT do Gustav Ritter com 14 anos, onde se abriram portas para o mercado de trabalho. Em Goiás, tive a oportunidade de trabalhar com grandes nomes como Luiz Roberto Pinheiro, Christie Queiroz e Eduardo de Souza.</p>
+                        <p style="margin-top: 1rem;">Hoje, sigo com e para além de espetáculos teatrais, arte educação e literatura infantil. Pois a vida é curta e a arte é longa.</p>
+                    </div>
+                    <div class="hero-subtitle">
+                        <strong>Nome:</strong> Gustavo de Freitas Miranda<br>
+                        <strong>Data de Nascimento:</strong> 14/05/2004<br>
+                        <strong>Naturalidade:</strong> Manaus-AM<br>
+                        <strong>Altura e Peso:</strong> 1,76m | 67kg<br>
+                        <strong>DRT:</strong> 0004360/GO<br>
+                        <strong>Contato:</strong> tatsufreitas.contato@gmail.com<br>
+                        <strong>WhatsApp:</strong> (62) 99920-9938
+                    </div>
+                </div>
+                <div class="hero-photo"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO PORTFÓLIO -->
+    <section id="portfolio">
+        <div class="container">
+            <h2 style="font-size: 36px; margin: 3rem 0 2rem; color: #333; font-weight: 700;">Portfólio</h2>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <div class="gallery-image gallery-carousel" data-carousel="joao-maria">
+                        <div class="gallery-slide active" style="background-image: url('https://i.imgur.com/0k54Ei6.jpg');"></div>
+                        <div class="gallery-slide" style="background-image: url('https://i.imgur.com/hewkygA.jpg');"></div>
+                        <button class="gallery-carousel-button previous" type="button" aria-label="Foto anterior" onclick="changeCarouselSlide('joao-maria', -1)">&#8249;</button>
+                        <button class="gallery-carousel-button next" type="button" aria-label="Próxima foto" onclick="changeCarouselSlide('joao-maria', 1)">&#8250;</button>
+                    </div>
+                    <div class="gallery-content">
+                        <h3>João & Maria: Um Doce Musical</h3>
+                        <p>Papel: João - Incanti Entretenimento (2023)</p>
+                        <span class="gallery-tag">Musical</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-image" style="background-image: url('https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=900&q=80');"></div>
+                    <div class="gallery-content">
+                        <h3>Aladdin</h3>
+                        <p>Papel: Yago e Mustafá - Pinheiro Produções (2022)</p>
+                        <span class="gallery-tag">Teatro</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-image gallery-carousel" data-carousel="sesi-campinas">
+                        <div class="gallery-slide active" style="background-image: url('https://i.imgur.com/u0c6ODi.jpg');"></div>
+                        <div class="gallery-slide" style="background-image: url('https://i.imgur.com/g4rC5PV.jpg');"></div>
+                        <div class="gallery-slide" style="background-image: url('https://i.imgur.com/hUi7iUm.jpg');"></div>
+                        <button class="gallery-carousel-button previous" type="button" aria-label="Foto anterior" onclick="changeCarouselSlide('sesi-campinas', -1)">&#8249;</button>
+                        <button class="gallery-carousel-button next" type="button" aria-label="Próxima foto" onclick="changeCarouselSlide('sesi-campinas', 1)">&#8250;</button>
+                    </div>
+                    <div class="gallery-content">
+                        <h3>Cia Teatral SESI Campinas</h3>
+                        <p>Assistência de direção (2021)</p>
+                        <span class="gallery-tag">Teatro</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-image gallery-carousel" data-carousel="mae-e-tudo-igual">
+                        <div class="gallery-slide active" style="background-image: url('https://i.imgur.com/TlVaZf6.jpg');"></div>
+                        <div class="gallery-slide" style="background-image: url('https://i.imgur.com/d18Z7p9.jpg');"></div>
+                        <div class="gallery-slide" style="background-image: url('https://i.imgur.com/mIJznxJ.jpg');"></div>
+                        <button class="gallery-carousel-button previous" type="button" aria-label="Foto anterior" onclick="changeCarouselSlide('mae-e-tudo-igual', -1)">&#8249;</button>
+                        <button class="gallery-carousel-button next" type="button" aria-label="Próxima foto" onclick="changeCarouselSlide('mae-e-tudo-igual', 1)">&#8250;</button>
+                    </div>
+                    <div class="gallery-content">
+                        <h3>Mãe é tudo igual... só muda o endereço</h3>
+                        <p>Homenagem da Prefeitura de Goiânia às mães (2020)</p>
+                        <span class="gallery-tag">Teatro</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-image gallery-carousel" data-carousel="bela-e-a-fera">
+                        <div class="gallery-slide active" style="background-image: url('https://images.unsplash.com/photo-1524402828690-3d0f5d7acaa1?auto=format&fit=crop&w=900&q=80');"></div>
+                        <div class="gallery-slide" style="background-image: url('https://i.imgur.com/S00WlX3.jpg');"></div>
+                        <button class="gallery-carousel-button previous" type="button" aria-label="Foto anterior" onclick="changeCarouselSlide('bela-e-a-fera', -1)">&#8249;</button>
+                        <button class="gallery-carousel-button next" type="button" aria-label="Próxima foto" onclick="changeCarouselSlide('bela-e-a-fera', 1)">&#8250;</button>
+                    </div>
+                    <div class="gallery-content">
+                        <h3>A Bela e a Fera</h3>
+                        <p>Papel: Lefoul - Cia Astros de Teatro (2022)</p>
+                        <span class="gallery-tag">Musical</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-image gallery-carousel" data-carousel="os-saltimbancos">
+                        <div class="gallery-slide active" style="background-image: url('https://i.imgur.com/ydjz1yl.jpg');"></div>
+                        <div class="gallery-slide" style="background-image: url('https://i.imgur.com/35dhjNV.jpg');"></div>
+                        <div class="gallery-slide" style="background-image: url('https://i.imgur.com/ADaD1wm.jpg');"></div>
+                        <button class="gallery-carousel-button previous" type="button" aria-label="Foto anterior" onclick="changeCarouselSlide('os-saltimbancos', -1)">&#8249;</button>
+                        <button class="gallery-carousel-button next" type="button" aria-label="Próxima foto" onclick="changeCarouselSlide('os-saltimbancos', 1)">&#8250;</button>
+                    </div>
+                    <div class="gallery-content">
+                        <h3>Os Saltimbancos</h3>
+                        <p>Papel: Cachorro - Cia Teatro Dominó (2019-2021)</p>
+                        <span class="gallery-tag">Teatro</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-image gallery-carousel" data-carousel="um-pouco-de-nos">
+                        <div class="gallery-slide active" style="background-image: url('https://images.unsplash.com/photo-1503095396549-807759245b35?auto=format&fit=crop&w=900&q=80');"></div>
+                        <div class="gallery-slide" style="background-image: url('https://i.imgur.com/cn4cpZO.jpg');"></div>
+                        <button class="gallery-carousel-button previous" type="button" aria-label="Foto anterior" onclick="changeCarouselSlide('um-pouco-de-nos', -1)">&#8249;</button>
+                        <button class="gallery-carousel-button next" type="button" aria-label="Próxima foto" onclick="changeCarouselSlide('um-pouco-de-nos', 1)">&#8250;</button>
+                    </div>
+                    <div class="gallery-content">
+                        <h3>Um Pouco de Nós</h3>
+                        <p>Espetáculo (2019)</p>
+                        <span class="gallery-tag">Teatro</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-image gallery-carousel" data-carousel="morreu-mas-passa-bem">
+                        <div class="gallery-slide active" style="background-image: url('https://images.unsplash.com/photo-1503095396549-807759245b35?auto=format&fit=crop&w=900&q=80');"></div>
+                        <div class="gallery-slide" style="background-image: url('https://i.imgur.com/zmnl8qQ.jpg');"></div>
+                        <div class="gallery-slide" style="background-image: url('https://i.imgur.com/7HDbJvf.jpg');"></div>
+                        <div class="gallery-slide" style="background-image: url('https://i.imgur.com/b2nTA80.jpg');"></div>
+                        <button class="gallery-carousel-button previous" type="button" aria-label="Foto anterior" onclick="changeCarouselSlide('morreu-mas-passa-bem', -1)">&#8249;</button>
+                        <button class="gallery-carousel-button next" type="button" aria-label="Próxima foto" onclick="changeCarouselSlide('morreu-mas-passa-bem', 1)">&#8250;</button>
+                    </div>
+                    <div class="gallery-content">
+                        <h3>Amor.IA - Inteligência Artificial</h3>
+                        <p>Espetáculo de teatro (2026). Personagem, direção e companhia não informados.</p>
+                        <span class="gallery-tag">Teatro</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-image" style="background-image: url('https://images.unsplash.com/photo-1503095396549-807759245b35?auto=format&fit=crop&w=900&q=80');"></div>
+                    <div class="gallery-content">
+                        <h3>Morreu mas passa bem</h3>
+                        <p>Espetáculo de teatro. Ano, personagem, direção e companhia não informados.</p>
+                        <span class="gallery-tag">Teatro</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-image" style="background-image: url('https://images.unsplash.com/photo-1503095396549-807759245b35?auto=format&fit=crop&w=900&q=80');"></div>
+                    <div class="gallery-content">
+                        <h3>Connectland</h3>
+                        <p>Espetáculo de teatro. Ano, personagem, direção e companhia não informados.</p>
+                        <span class="gallery-tag">Teatro</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-image gallery-carousel" data-carousel="bullying">
+                        <div class="gallery-slide active" style="background-image: url('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=900&q=80');"></div>
+                        <div class="gallery-slide" style="background-image: url('https://i.imgur.com/goYmoPi.jpg');"></div>
+                        <div class="gallery-slide" style="background-image: url('https://i.imgur.com/f9voWRE.jpg');"></div>
+                        <div class="gallery-slide" style="background-image: url('https://i.imgur.com/vBFbOOC.jpg');"></div>
+                        <button class="gallery-carousel-button previous" type="button" aria-label="Foto anterior" onclick="changeCarouselSlide('bullying', -1)">&#8249;</button>
+                        <button class="gallery-carousel-button next" type="button" aria-label="Próxima foto" onclick="changeCarouselSlide('bullying', 1)">&#8250;</button>
+                    </div>
+                    <div class="gallery-content">
+                        <h3>Bullying: Aconteceu Comigo</h3>
+                        <p>Espetáculo para escolas - Curitiba (2019)</p>
+                        <span class="gallery-tag">Prevenção</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-image" style="background-image: url('https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=900&q=80');"></div>
+                    <div class="gallery-content">
+                        <h3>Livre Estou</h3>
+                        <p>Personagens: Rei e Duque - Santa Vaca Creations (2023) | Direção: Vivi Reis</p>
+                        <span class="gallery-tag">Teatro</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-image gallery-carousel" data-carousel="moo-awards">
+                        <div class="gallery-slide active" style="background-image: url('https://i.imgur.com/5XFf0yO.jpg');"></div>
+                        <div class="gallery-slide" style="background-image: url('https://i.imgur.com/YnVsPy0.jpg');"></div>
+                        <div class="gallery-slide" style="background-image: url('https://i.imgur.com/Gw43ArL.jpg');"></div>
+                        <button class="gallery-carousel-button previous" type="button" aria-label="Foto anterior" onclick="changeCarouselSlide('moo-awards', -1)">&#8249;</button>
+                        <button class="gallery-carousel-button next" type="button" aria-label="Próxima foto" onclick="changeCarouselSlide('moo-awards', 1)">&#8250;</button>
+                    </div>
+                    <div class="gallery-content">
+                        <h3>Moo Awards</h3>
+                        <p>Premiação de Melhor Personagem Vivo por Cabeça Oca (2023)</p>
+                        <span class="gallery-tag">Premiação</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-image" style="background-image: url('https://images.unsplash.com/photo-1503095396549-807759245b35?auto=format&fit=crop&w=900&q=80');"></div>
+                    <div class="gallery-content">
+                        <h3>Passarinhos</h3>
+                        <p>Direção: Aliny Ribeiro (2023)</p>
+                        <span class="gallery-tag">Teatro</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-image" style="background-image: url('https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=900&q=80');"></div>
+                    <div class="gallery-content">
+                        <h3>Turma do Cabeça Oca Contra o Bullying</h3>
+                        <p>Direção: Eduardo de Souza (2023)</p>
+                        <span class="gallery-tag">Teatro</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-image gallery-carousel" data-carousel="chega-de-fiu-fiu">
+                        <div class="gallery-slide active" style="background-image: url('https://i.imgur.com/Izqvfug.jpg');"></div>
+                        <div class="gallery-slide" style="background-image: url('https://i.imgur.com/iUNrBhI.jpg');"></div>
+                        <div class="gallery-slide" style="background-image: url('https://i.imgur.com/tJyqYAk.jpg');"></div>
+                        <div class="gallery-slide" style="background-image: url('https://i.imgur.com/5t20i43.jpg');"></div>
+                        <button class="gallery-carousel-button previous" type="button" aria-label="Foto anterior" onclick="changeCarouselSlide('chega-de-fiu-fiu', -1)">&#8249;</button>
+                        <button class="gallery-carousel-button next" type="button" aria-label="Próxima foto" onclick="changeCarouselSlide('chega-de-fiu-fiu', 1)">&#8250;</button>
+                    </div>
+                    <div class="gallery-content">
+                        <h3>Chega de Fiu Fiu</h3>
+                        <p>Papel: Jurema - Cia Eduardo de Souza (2022) | Direção: Eduardo de Souza</p>
+                        <span class="gallery-tag">Teatro</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-image" style="background-image: url('https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=900&q=80');"></div>
+                    <div class="gallery-content">
+                        <h3>Turma do Cabeça Oca: Razões Para Viver</h3>
+                        <p>Papel: Cabeça Oca - Direção: Eduardo de Souza, Christie Queiroz (2023)</p>
+                        <span class="gallery-tag">Teatro</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-image" style="background-image: url('https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=900&q=80');"></div>
+                    <div class="gallery-content">
+                        <h3>Os Três Porquinhos: Conectando Memórias</h3>
+                        <p>Papel: Leitinho - Bryan Cruz Produções (2023) | Direção: Bryan Cruz</p>
+                        <span class="gallery-tag">Teatro</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-image" style="background-image: url('https://images.unsplash.com/photo-1493514789554-586cbf94f0db?auto=format&fit=crop&w=900&q=80');"></div>
+                    <div class="gallery-content">
+                        <h3>A Pequena Sereia: O Musical</h3>
+                        <p>Papel: Sabidão - Cia Astros de Teatro (2023) | Direção: Igor Ribeiro</p>
+                        <span class="gallery-tag">Musical</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-image gallery-carousel" data-carousel="melhor-que-ta">
+                        <div class="gallery-slide active" style="background-image: url('https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=900&q=80');"></div>
+                        <div class="gallery-slide" style="background-image: url('https://i.imgur.com/cJdysP2.jpg');"></div>
+                        <div class="gallery-slide" style="background-image: url('https://i.imgur.com/C2YieIm.jpg');"></div>
+                        <button class="gallery-carousel-button previous" type="button" aria-label="Foto anterior" onclick="changeCarouselSlide('melhor-que-ta', -1)">&#8249;</button>
+                        <button class="gallery-carousel-button next" type="button" aria-label="Próxima foto" onclick="changeCarouselSlide('melhor-que-ta', 1)">&#8250;</button>
+                    </div>
+                    <div class="gallery-content">
+                        <h3>Melhor Que Tá, Dá Pra Ficar</h3>
+                        <p>Papel: Pudim - Cia Teatro Dominó (2023) | Direção: Aliny Ribeiro</p>
+                        <span class="gallery-tag">Teatro</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-image gallery-carousel" data-carousel="dona-lourdes">
+                        <div class="gallery-slide active" style="background-image: url('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=900&q=80');"></div>
+                        <div class="gallery-slide" style="background-image: url('https://i.imgur.com/8sUtqZK.jpg');"></div>
+                        <div class="gallery-slide" style="background-image: url('https://i.imgur.com/hboENB8.jpg');"></div>
+                        <button class="gallery-carousel-button previous" type="button" aria-label="Foto anterior" onclick="changeCarouselSlide('dona-lourdes', -1)">&#8249;</button>
+                        <button class="gallery-carousel-button next" type="button" aria-label="Próxima foto" onclick="changeCarouselSlide('dona-lourdes', 1)">&#8250;</button>
+                    </div>
+                    <div class="gallery-content">
+                        <h3>Dona Lourdes</h3>
+                        <p>Papel: Juninho - Goiânia Humor em Cena (2023) | Direção: Eduardo de Souza</p>
+                        <span class="gallery-tag">Comédia</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-image gallery-carousel" data-carousel="caio">
+                        <div class="gallery-slide active" style="background-image: url('https://i.imgur.com/9kOade1.jpg');"></div>
+                        <div class="gallery-slide" style="background-image: url('https://i.imgur.com/DbfuTcL.jpg');"></div>
+                        <button class="gallery-carousel-button previous" type="button" aria-label="Foto anterior" onclick="changeCarouselSlide('caio', -1)">&#8249;</button>
+                        <button class="gallery-carousel-button next" type="button" aria-label="Próxima foto" onclick="changeCarouselSlide('caio', 1)">&#8250;</button>
+                    </div>
+                    <div class="gallery-content">
+                        <h3>Caio e Sua Turma: Sonho de Criança</h3>
+                        <p>Papel: João - Sicoob | Direção: Eduardo de Souza (2022)</p>
+                        <span class="gallery-tag">Teatro</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-image" style="background-image: url('https://i.imgur.com/OoLHejL.jpg');"></div>
+                    <div class="gallery-content">
+                        <h3>Antígona - Leitura Dramática</h3>
+                        <p>Leitura dramática. Ano, personagem, direção e companhia não informados.</p>
+                        <span class="gallery-tag">Teatro</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-image" style="background-image: url('https://images.unsplash.com/photo-1522869635100-ce0846b1d02d?auto=format&fit=crop&w=900&q=80');"></div>
+                    <div class="gallery-content">
+                        <h3>Turma do Cabeça Oca: O Poder da Leitura</h3>
+                        <p>Papel: Cabeça Oca - Pocket Show para Lançamento de Livro (2022)</p>
+                        <span class="gallery-tag">Teatro</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-image" style="background-image: url('https://images.unsplash.com/photo-1501339847302-ac426a36c86d?auto=format&fit=crop&w=900&q=80');"></div>
+                    <div class="gallery-content">
+                        <h3>Turma do Cabeça Oca no Mundo de Monteiro Lobato</h3>
+                        <p>Papel: Cabeça Oca - Direção: Aliny Ribeiro (2023)</p>
+                        <span class="gallery-tag">Teatro</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-image" style="background-image: url('https://images.unsplash.com/photo-1518676590629-3dcbd9c5a5c9?auto=format&fit=crop&w=900&q=80');"></div>
+                    <div class="gallery-content">
+                        <h3>Turma do Cabeça Oca: Contação de Monteiro Lobato</h3>
+                        <p>Papel: Cabeça Oca - Direção: Tatsu Freitas (2023)</p>
+                        <span class="gallery-tag">Teatro</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-image" style="background-image: url('https://i.imgur.com/ig0bmXj.jpg');"></div>
+                    <div class="gallery-content">
+                        <h3>Turma do Cabeça Oca no Mundo de Cora Coralina</h3>
+                        <p>Produção da Turma do Cabeça Oca (2024-2025)</p>
+                        <span class="gallery-tag">Teatro</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-image" style="background-image: url('https://images.unsplash.com/photo-1503595046615-64591541daf2?auto=format&fit=crop&w=900&q=80');"></div>
+                    <div class="gallery-content">
+                        <h3>Turma do Cabeça Oca: Sábado Sabido</h3>
+                        <p>Papel: Contador de Histórias - Direção: Tatsu Freitas (2024)</p>
+                        <span class="gallery-tag">Teatro</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-image" style="background-image: url('https://images.unsplash.com/photo-1518676590629-3dcbd9c5a5c9?auto=format&fit=crop&w=900&q=80');"></div>
+                    <div class="gallery-content">
+                        <h3>Turma do Cabeça Oca - Desplugados</h3>
+                        <p>Produção da Turma do Cabeça Oca (2024) | Direção: Eduardo de Souza</p>
+                        <span class="gallery-tag">Teatro</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-image gallery-carousel" data-carousel="natal-do-bem">
+                        <div class="gallery-slide active" style="background-image: url('https://images.unsplash.com/photo-1485095046884-e01f1d318b78?auto=format&fit=crop&w=900&q=80');"></div>
+                        <div class="gallery-slide" style="background-image: url('https://i.imgur.com/mymy8x6.jpg');"></div>
+                        <button class="gallery-carousel-button previous" type="button" aria-label="Foto anterior" onclick="changeCarouselSlide('natal-do-bem', -1)">&#8249;</button>
+                        <button class="gallery-carousel-button next" type="button" aria-label="Próxima foto" onclick="changeCarouselSlide('natal-do-bem', 1)">&#8250;</button>
+                    </div>
+                    <div class="gallery-content">
+                        <h3>Natal do Bem</h3>
+                        <p>Desfile natalino da OVG pela Darte Entretenimento (2025)</p>
+                        <span class="gallery-tag">Desfile Natalino</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-image" style="background-image: url('https://images.unsplash.com/photo-1504609813442-a8924e83f76e?auto=format&fit=crop&w=900&q=80');"></div>
+                    <div class="gallery-content">
+                        <h3>Dança Contemporânea</h3>
+                        <p>FIC-IT Basileu França (2026)</p>
+                        <span class="gallery-tag">Dança</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-image" style="background-image: url('https://images.unsplash.com/photo-1485095046884-e01f1d318b78?auto=format&fit=crop&w=900&q=80');"></div>
+                    <div class="gallery-content">
+                        <h3>Junina Arriegua 2026</h3>
+                        <p>Apresentação Grande Produção - Junho de 2026</p>
+                        <span class="gallery-tag">Junino</span>
+                    </div>
+                </div>
+            </div>
+            <div id="portfolio-other" class="portfolio-other">
+                <h2 style="font-size: 30px; margin: 3rem 0 0; font-weight: 700;">Outros</h2>
+                <div class="gallery"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO LINHA DO TEMPO -->
+    <section id="timeline">
+        <div class="container">
+            <h2 style="font-size: 36px; margin: 3rem 0 2rem; color: #333; font-weight: 700;">Linha do tempo</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-year">2016</div>
+                    <div class="timeline-content">
+                        <h3>Início da Formação Teatral</h3>
+                        <p>SESI Planalto em Cena - Direção: Karine Ramaldes. Primeiro personagem: Chapeleiro Maluco em "Deu a Louca no País das Maravilhas"</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2019</div>
+                    <div class="timeline-content">
+                        <h3>Bullying: Aconteceu Comigo</h3>
+                        <p>Espetáculo para escolas - Curitiba (2019)</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2019</div>
+                    <div class="timeline-content">
+                        <h3>Um Pouco de Nós</h3>
+                        <p>Espetáculo (2019)</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2026</div>
+                    <div class="timeline-content">
+                        <h3>Amor.IA - Inteligência Artificial</h3>
+                        <p>Espetáculo de teatro (2026). Personagem, direção e companhia não informados.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">Ano não informado</div>
+                    <div class="timeline-content">
+                        <h3>Morreu mas passa bem</h3>
+                        <p>Espetáculo de teatro. Ano, personagem, direção e companhia não informados.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">Ano não informado</div>
+                    <div class="timeline-content">
+                        <h3>Connectland</h3>
+                        <p>Espetáculo de teatro. Ano, personagem, direção e companhia não informados.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">Ano não informado</div>
+                    <div class="timeline-content">
+                        <h3>Antígona - Leitura Dramática</h3>
+                        <p>Leitura dramática. Ano, personagem, direção e companhia não informados.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2019-2021</div>
+                    <div class="timeline-content">
+                        <h3>Os Saltimbancos</h3>
+                        <p>Papel: Cachorro - Cia Teatro Dominó (2019-2021)</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2020</div>
+                    <div class="timeline-content">
+                        <h3>Qualificação Profissional em Teatro</h3>
+                        <p>FIC-IT (Formação Inicial e Continuada em Interpretação Teatral) do Gustav Ritter.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2020</div>
+                    <div class="timeline-content">
+                        <h3>Mãe é tudo igual... só muda o endereço</h3>
+                        <p>Homenagem da Prefeitura de Goiânia às mães (2020)</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2021</div>
+                    <div class="timeline-content">
+                        <h3>Cia Teatral SESI Campinas</h3>
+                        <p>Assistência de direção (2021)</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2022</div>
+                    <div class="timeline-content">
+                        <h3>Aladdin</h3>
+                        <p>Papel: Yago e Mustafá - Pinheiro Produções (2022)</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2022</div>
+                    <div class="timeline-content">
+                        <h3>A Bela e a Fera</h3>
+                        <p>Papel: Lefoul - Cia Astros de Teatro (2022)</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2022</div>
+                    <div class="timeline-content">
+                        <h3>Chega de Fiu Fiu</h3>
+                        <p>Papel: Jurema - Cia Eduardo de Souza (2022) | Direção: Eduardo de Souza</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2022</div>
+                    <div class="timeline-content">
+                        <h3>Caio e Sua Turma: Sonho de Criança</h3>
+                        <p>Papel: João - Sicoob | Direção: Eduardo de Souza (2022)</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2022</div>
+                    <div class="timeline-content">
+                        <h3>Turma do Cabeça Oca: O Poder da Leitura</h3>
+                        <p>Papel: Cabeça Oca - Pocket Show para Lançamento de Livro (2022)</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2023</div>
+                    <div class="timeline-content">
+                        <h3>Passarinhos</h3>
+                        <p>Direção: Aliny Ribeiro (2023)</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2023</div>
+                    <div class="timeline-content">
+                        <h3>Turma do Cabeça Oca Contra o Bullying</h3>
+                        <p>Direção: Eduardo de Souza (2023)</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2023</div>
+                    <div class="timeline-content">
+                        <h3>João &amp; Maria: Um Doce Musical</h3>
+                        <p>Papel: João - Incanti Entretenimento (2023)</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2023</div>
+                    <div class="timeline-content">
+                        <h3>Moo Awards</h3>
+                        <p>Premiação de Melhor Personagem Vivo por Cabeça Oca (2023)</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2023</div>
+                    <div class="timeline-content">
+                        <h3>Livre Estou</h3>
+                        <p>Personagens: Rei e Duque - Santa Vaca Creations (2023) | Direção: Vivi Reis</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2023</div>
+                    <div class="timeline-content">
+                        <h3>Turma do Cabeça Oca: Razões Para Viver</h3>
+                        <p>Papel: Cabeça Oca - Direção: Eduardo de Souza, Christie Queiroz (2023)</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2023</div>
+                    <div class="timeline-content">
+                        <h3>Os Três Porquinhos: Conectando Memórias</h3>
+                        <p>Papel: Leitinho - Bryan Cruz Produções (2023) | Direção: Bryan Cruz</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2023</div>
+                    <div class="timeline-content">
+                        <h3>A Pequena Sereia: O Musical</h3>
+                        <p>Papel: Sabidão - Cia Astros de Teatro (2023) | Direção: Igor Ribeiro</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2023</div>
+                    <div class="timeline-content">
+                        <h3>Melhor Que Tá, Dá Pra Ficar</h3>
+                        <p>Papel: Pudim - Cia Teatro Dominó (2023) | Direção: Aliny Ribeiro</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2023</div>
+                    <div class="timeline-content">
+                        <h3>Dona Lourdes</h3>
+                        <p>Papel: Juninho - Goiânia Humor em Cena (2023) | Direção: Eduardo de Souza</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2023</div>
+                    <div class="timeline-content">
+                        <h3>Turma do Cabeça Oca no Mundo de Monteiro Lobato</h3>
+                        <p>Papel: Cabeça Oca - Direção: Aliny Ribeiro (2023)</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2023</div>
+                    <div class="timeline-content">
+                        <h3>Turma do Cabeça Oca: Contação de Monteiro Lobato</h3>
+                        <p>Papel: Cabeça Oca - Direção: Tatsu Freitas (2023)</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2024-2025</div>
+                    <div class="timeline-content">
+                        <h3>Turma do Cabeça Oca no Mundo de Cora Coralina</h3>
+                        <p>Produção da Turma do Cabeça Oca (2024-2025). Personagem e direção não informados.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2024</div>
+                    <div class="timeline-content">
+                        <h3>Turma do Cabeça Oca: Sábado Sabido</h3>
+                        <p>Papel: Contador de Histórias - Direção: Tatsu Freitas (2024)</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2024</div>
+                    <div class="timeline-content">
+                        <h3>Turma do Cabeça Oca - Desplugados</h3>
+                        <p>Produção da Turma do Cabeça Oca (2024) | Direção: Eduardo de Souza</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2024</div>
+                    <div class="timeline-content">
+                        <h3>Sinfonia do Hiperativo</h3>
+                        <p>Performance artística e audiovisual com maquiagem teatral | 1º Festival de Artes On-Line</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2024</div>
+                    <div class="timeline-content">
+                        <h3>Elephant Gun - Cover</h3>
+                        <p>Versão interpretada de "Elephant Gun" com produção audiovisual profissional</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2024</div>
+                    <div class="timeline-content">
+                        <h3>FLORA - Série</h3>
+                        <p>Série de videoclipes com produção profissional | Direção: Kevem Marley</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2025</div>
+                    <div class="timeline-content">
+                        <h3>Natal do Bem</h3>
+                        <p>Desfile natalino da OVG pela Darte Entretenimento (2025)</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2026 - ?</div>
+                    <div class="timeline-content">
+                        <h3>Dança Contemporânea</h3>
+                        <p>FIC-IT Basileu França (2026)</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2026</div>
+                    <div class="timeline-content">
+                        <h3>Junina Arriegua 2026</h3>
+                        <p>Apresentação Grande Produção - Junho de 2026</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO AGENDA -->
+    <section id="agenda">
+        <div class="container">
+            <h2 style="font-size: 36px; margin: 3rem 0 2rem; color: #333; font-weight: 700;">Próximos Eventos</h2>
+            <div class="agenda-grid">
+                <div class="agenda-card">
+                    <h3>Setembro</h3>
+                    <p>Indisponível</p>
+                </div>
+                <div class="agenda-card">
+                    <h3>Outubro</h3>
+                    <p>Ensaios Natal do Bem; aberto a projetos audiovisuais, festas infantis, espetáculos teatrais e eventos corporativos</p>
+                </div>
+                <div class="agenda-card">
+                    <h3>Novembro</h3>
+                    <p>Ensaios Natal do Bem; aberto a projetos audiovisuais, festas infantis e eventos corporativos</p>
+                </div>
+                <div class="agenda-card">
+                    <h3>Dezembro</h3>
+                    <p>Temporada Natal do Bem</p>
+                </div>
+                <div class="agenda-card">
+                    <h3>Janeiro <span class="agenda-year-highlight">2027</span></h3>
+                    <p>Aberto para propostas</p>
+                </div>
+            </div>
+            <div class="cta-box">
+                <h2>Vai um cafézinho aí?</h2>
+                <p>Entre em contato via WhatsApp ou DM no Instagram para orçamentos e informações sobre disponibilidade</p>
+                <a href="https://instagram.com/tatsufreitas" class="cta-button">Envie uma Mensagem</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO AUDIOVISUAL -->
+    <section id="audiovisual">
+        <div class="container">
+            <h2 style="font-size: 36px; margin: 3rem 0 2rem; color: #333; font-weight: 700;">Mídia</h2>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <div class="gallery-image" style="background-image: url('https://i.imgur.com/SXzslPj.jpg');"></div>
+                    <div class="gallery-content">
+                        <h3>Sinfonia do Hiperativo</h3>
+                        <p>Performance artística e audiovisual com maquiagem teatral | 1º Festival de Artes On-Line</p>
+                        <span class="gallery-tag">Audiovisual</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-image" style="background-image: url('https://images.unsplash.com/photo-1493514789554-586cbf94f0db?auto=format&fit=crop&w=900&q=80');"></div>
+                    <div class="gallery-content">
+                        <h3>Elephant Gun - Cover</h3>
+                        <p>Versão interpretada de "Elephant Gun" com produção audiovisual profissional</p>
+                        <span class="gallery-tag">Música</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-image" style="background-image: url('https://i.imgur.com/g949vbZ.jpg');"></div>
+                    <div class="gallery-content">
+                        <h3>FLORA - Série</h3>
+                        <p>Série de videoclipes com produção profissional | Direção: Kevem Marley</p>
+                        <span class="gallery-tag">Série</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-image" style="background-image: url('https://i.imgur.com/nywlg5Q.jpg');"></div>
+                    <div class="gallery-content">
+                        <h3>As Aventuras de Poliana Moça</h3>
+                        <p>Kevem Marley (2021)</p>
+                        <span class="gallery-tag">Audiovisual</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Tatsu Freitas - Arte Educador | <a href="https://instagram.com/tatsufreitas">@tatsufreitas</a></p>
+    </footer>
+
+    <script>
+        function removeNonUploadImages() {
+            document.querySelectorAll('#portfolio .gallery-image, #audiovisual .gallery-image').forEach(imageContainer => {
+                const slides = imageContainer.querySelectorAll('.gallery-slide');
+
+                if (slides.length) {
+                    slides.forEach(slide => {
+                        if (slide.getAttribute('style')?.includes('images.unsplash.com')) {
+                            slide.remove();
+                        }
+                    });
+
+                    const remainingSlides = imageContainer.querySelectorAll('.gallery-slide');
+                    if (remainingSlides.length && !imageContainer.querySelector('.gallery-slide.active')) {
+                        remainingSlides[0].classList.add('active');
+                    }
+                    return;
+                }
+
+                if (imageContainer.getAttribute('style')?.includes('images.unsplash.com')) {
+                    imageContainer.style.backgroundImage = 'none';
+                }
+            });
+        }
+
+        removeNonUploadImages();
+
+        function organizePortfolioCards() {
+            const mainGallery = document.querySelector('#portfolio > .container > .gallery');
+            const otherGallery = document.querySelector('#portfolio-other .gallery');
+
+            if (!mainGallery || !otherGallery) {
+                return;
+            }
+
+            Array.from(mainGallery.children).forEach(card => {
+                if (!card.innerHTML.includes('i.imgur.com')) {
+                    otherGallery.appendChild(card);
+                }
+            });
+        }
+
+        organizePortfolioCards();
+
+        function changeCarouselSlide(carouselName, direction) {
+            const carousel = document.querySelector(`[data-carousel="${carouselName}"]`);
+            if (!carousel) {
+                return;
+            }
+
+            const slides = carousel.querySelectorAll('.gallery-slide');
+            const activeIndex = Array.from(slides).findIndex(slide => slide.classList.contains('active'));
+            const nextIndex = (activeIndex + direction + slides.length) % slides.length;
+
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[nextIndex].classList.add('active');
+        }
+
+        function switchTab(tabName, event) {
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => section.classList.remove('active'));
+
+            const targetSection = document.getElementById(tabName);
+            if (targetSection) {
+                targetSection.classList.add('active');
+            }
+
+            const activeButton = event && event.currentTarget ? event.currentTarget : document.querySelector(`.tab-button[data-tab="${tabName}"]`);
+            const color = activeButton ? activeButton.dataset.color || 'green' : 'green';
+            const header = document.querySelector('header');
+
+            if (header) {
+                header.setAttribute('data-color', color);
+            }
+
+            const buttons = document.querySelectorAll('.tab-button');
+            buttons.forEach(button => {
+                button.classList.remove('active');
+            });
+
+            if (activeButton) {
+                activeButton.setAttribute('data-color', color);
+                activeButton.classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>
